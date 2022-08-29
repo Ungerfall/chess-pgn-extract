@@ -26,8 +26,7 @@ namespace PgnExtract.AzureFunction
             if (body == null)
                 return req.CreateResponse(HttpStatusCode.BadRequest);
 
-            const string pgnExtractPath = "pgn-extract";
-            await SetPermissionsAsync(pgnExtractPath, "644");
+            const string pgnExtractPath = "pgn-extract.exe";
             var stdOutBuffer = new StringBuilder();
             await Cli.Wrap(pgnExtractPath)
                 .WithArguments("-WxolalgPNBRQK") // enhanced long algebraic
@@ -41,11 +40,5 @@ namespace PgnExtract.AzureFunction
 
             return response;
         }
-
-        public static async ValueTask SetPermissionsAsync(string filePath, string permissions) =>
-            await Cli.Wrap("/bin/bash")
-            .WithArguments(new[] { "-c", $"chmod {permissions} {filePath}" })
-            .WithValidation(CommandResultValidation.None)
-            .ExecuteAsync();
     }
 }

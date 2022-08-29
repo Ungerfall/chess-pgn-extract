@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>    
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\pgn-extract\pgn-extract" Link="pgn-extract">
+    <None Include="..\..\pgn-extract\pgn-extract.exe" Link="pgn-extract.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
