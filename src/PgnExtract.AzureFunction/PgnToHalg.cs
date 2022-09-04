@@ -17,7 +17,7 @@ namespace PgnExtract.AzureFunction
             _logger = loggerFactory.CreateLogger<PgnToHalg>();
         }
 
-        [Function("PgnExtractFunction")]
+        [Function("long-algebraic")]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
